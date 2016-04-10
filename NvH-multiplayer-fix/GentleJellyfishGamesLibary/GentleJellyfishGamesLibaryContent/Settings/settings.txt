@@ -1,0 +1,7 @@
+height:720
+width:1280
+fullscreen:false
+soundvolume:1
+musicvolume:1
+voicevolume:1
+vsync:false

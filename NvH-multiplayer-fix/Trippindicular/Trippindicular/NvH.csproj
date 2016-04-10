@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{C8409C93-11F1-4D0F-81E1-DD107A01AA80}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trippindicular</RootNamespace>
+    <AssemblyName>Trippindicular</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>f482606f-7c9c-42a5-afc1-676b34043991</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\..\..\..\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network.Xna">
+      <HintPath>..\..\Lidgren.Network.Xna.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BuildingMenus\BarracksMenu.cs" />
+    <Compile Include="Classes\Buildings\Building.cs" />
+    <Compile Include="Classes\Buildings\CoTile.cs" />
+    <Compile Include="Classes\Buildings\Forest.cs" />
+    <Compile Include="Classes\Buildings\HumanityBarracks.cs" />
+    <Compile Include="Classes\Buildings\HumanityBase.cs" />
+    <Compile Include="Classes\BuildingMenus\HumanityBaseMenu.cs" />
+    <Compile Include="Classes\Buildings\Mine.cs" />
+    <Compile Include="Classes\Buildings\NatureBarracks.cs" />
+    <Compile Include="Classes\Buildings\NatureBase.cs" />
+    <Compile Include="Classes\BuildingMenus\NatureBaseMenu.cs" />
+    <Compile Include="Classes\Buildings\PolyTileBuilding.cs" />
+    <Compile Include="Classes\Buildings\WaterTree.cs" />
+    <Compile Include="Classes\Cursor.cs" />
+    <Compile Include="Classes\DropDown.cs" />
+    <Compile Include="Classes\EventLog.cs" />
+    <Compile Include="Classes\GameData.cs" />
+    <Compile Include="Classes\GameStates\MenuInputState.cs" />
+    <Compile Include="Classes\GameStates\Menus\FactionMenuState.cs" />
+    <Compile Include="Classes\GameStates\Menus\HostLobbyState.cs" />
+    <Compile Include="Classes\GameStates\Playing\FinishState.cs" />
+    <Compile Include="Classes\GameStates\Playing\PlayingState.cs" />
+    <Compile Include="Classes\GameStates\Playing\HUD.cs" />
+    <Compile Include="Classes\GameStates\Menus\SettingsMenuOverlay.cs" />
+    <Compile Include="Classes\GameStates\Menus\TitleMenuState.cs" />
+    <Compile Include="Classes\HexaGrid.cs" />
+    <Compile Include="Classes\GameStates\Menus\SessionsMenuState.cs" />
+    <Compile Include="Classes\Network\ClientNetworkManager.cs" />
+    <Compile Include="Classes\Network\GameNetworkMessage.cs" />
+    <Compile Include="Classes\Network\INetworkManager.cs" />
+    <Compile Include="Classes\Network\ServerNetworkManager.cs" />
+    <Compile Include="Classes\Notification.cs" />
+    <Compile Include="Classes\Spells\MeteorStorm.cs" />
+    <Compile Include="Classes\Spells\SnowStorm.cs" />
+    <Compile Include="Classes\Spells\Spell.cs" />
+    <Compile Include="Classes\BuildingMenus\TileMenu.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Buildings\SunlightTree.cs" />
+    <Compile Include="Classes\Tile.cs" />
+    <Compile Include="Classes\TileMenuItem.cs" />
+    <Compile Include="Classes\Units\FlameThrower.cs" />
+    <Compile Include="Classes\Units\HumanityWorker.cs" />
+    <Compile Include="Classes\Units\Unicorn.cs" />
+    <Compile Include="Classes\Units\Main Combat units\Melee1.cs" />
+    <Compile Include="Classes\Units\Main Combat units\Melee2.cs" />
+    <Compile Include="Classes\Units\Main Combat units\Ranged.cs" />
+    <Compile Include="Classes\Units\NatureWorker.cs" />
+    <Compile Include="Classes\Units\Unit.cs" />
+    <Compile Include="Classes\Units\WoodCutter.cs" />
+    <Compile Include="Classes\CursorToolTip.cs" />
+    <Compile Include="Classes\BuildingMenus\Menu.cs" />
+    <Compile Include="Classes\MenuCursor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\MainGame.cs" />
+    <Compile Include="Classes\ResourceController.cs" />
+    <Compile Include="Classes\IsThisNecessaryTileMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GentleJellyfishGamesLibary\GentleJellyfishGamesLibary\NvHGameLibrary.csproj">
+      <Project>{81ec6c24-23bf-46c7-aa45-77d4fc5443af}</Project>
+      <Name>NvHGameLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

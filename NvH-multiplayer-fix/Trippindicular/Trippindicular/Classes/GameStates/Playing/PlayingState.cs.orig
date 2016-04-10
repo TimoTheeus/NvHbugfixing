@@ -1,0 +1,128 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Lidgren.Network;
+using Trippindicular.Classes;
+using System;
+using System.Collections.Generic;
+
+
+//Class used to update and draw everything that is needed when the player is playing the game.
+class PlayingState : IGameLoopObject
+{
+
+    private INetworkManager networkManager;
+    private bool connected = false;
+    public INetworkManager NetworkManager
+    {
+        get { return this.networkManager; }
+        set { this.networkManager = value; }
+    }
+
+
+
+    public PlayingState()
+    {
+    }
+    public void Initialize(bool host)
+    {
+        if (host)
+        {
+            this.networkManager = new ServerNetworkManager();
+            this.networkManager.Connect();
+            connected = true;
+        }
+        else
+        {
+            this.networkManager = new ClientNetworkManager();
+            this.networkManager.Connect();
+            connected = true;
+            this.networkManager.SendMessage("test");
+        }
+        GameData.Initialize();
+        GameData.AfterInitialize();
+    }
+
+    public void Update(GameTime gameTime)
+    {
+        ProcessNetworkMessages();
+        GameData.Update(gameTime);
+    }
+
+
+    public void HandleInput(InputHelper ih)
+    {
+        GameData.LevelObjects.HandleInput(ih);
+        if (ih.KeyPressed(Keys.F5))
+            GameSettings.SetFullscreen(!GameSettings.Fullscreen);
+<<<<<<< HEAD
+        string ls = GameData.LevelObjects.getActionOutput();
+        if (ls.Length > 3 && connected)
+        {
+            this.networkManager.SendMessage(ls);
+        }
+
+            
+=======
+        List<string> ls = GameData.LevelObjects.getActionOutputs();
+        foreach (string s in ls)
+        {
+            Console.WriteLine(s);
+        }
+>>>>>>> 19a8a709f70fb3a3c68f4a1ce43f0d4769879d0d
+    }
+
+    private void ProcessNetworkMessages()
+        {
+            NetIncomingMessage im;
+
+            while ((im = this.networkManager.ReadMessage()) != null)
+            {
+                switch (im.MessageType)
+                {
+                    case NetIncomingMessageType.VerboseDebugMessage:
+                    case NetIncomingMessageType.DebugMessage:
+                    case NetIncomingMessageType.WarningMessage:
+                    case NetIncomingMessageType.ErrorMessage:
+                        Console.WriteLine(im.ReadString());
+                        break;
+                    case NetIncomingMessageType.StatusChanged:
+                        switch ((NetConnectionStatus)im.ReadByte())
+                        {
+                            case NetConnectionStatus.Connected:
+                                Console.WriteLine("Connected to host");
+                     
+                                break;
+                            case NetConnectionStatus.Disconnected:
+                                Console.WriteLine("Disconnected");
+                                break;
+                        }
+                        Console.WriteLine(im.ReadString());
+
+                        break;
+                    case NetIncomingMessageType.Data:
+                        UpdateGameData(im.ReadString());
+                        //
+                        break;
+                }
+
+                this.networkManager.Recycle(im);
+            }
+        }
+
+    private void UpdateGameData(string p)
+    {
+        Console.WriteLine(p);
+    }
+
+    public void Reset()
+    {
+
+    }
+
+    public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    {
+        GameData.DrawGame(gameTime, spriteBatch);
+    }
+}
+
